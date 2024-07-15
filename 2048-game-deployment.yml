@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: 2048-game
+  labels:
+    app: 2048-game
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: 2048-game
+  template:
+    metadata:
+      labels:
+        app: 2048-game
+    spec:
+      containers:
+        - name: 2048-game
+          image: sanjaymah4jan88/2048:latest
+          ports:
+            - containerPort: 80
+          imagePullPolicy: Always
